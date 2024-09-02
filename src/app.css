@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+	@font-face {
+		font-family: 'Rubik Mono One';
+		src: local('Rubik Mono One'), local('Rubik-Mono-One'), local('rubik mono one'),
+			local('rubik-mono-one'), url('/fonts/RubikMonoOne-Regular.ttf');
+		font-weight: normal;
+		font-display: swap;
+	}
+}

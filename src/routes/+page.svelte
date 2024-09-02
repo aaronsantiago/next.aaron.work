@@ -1,2 +1,15 @@
-<h1 class="font-rubik">Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+  export let data;
+</script>
+
+<h1>projects</h1>
+
+<ul>
+  {#each data.projects as project}
+    <li>
+      <a href={project.path}>
+        {project.meta.title}
+      </a>
+    </li>
+  {/each}
+</ul>

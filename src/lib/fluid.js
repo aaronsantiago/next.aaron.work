@@ -94,7 +94,6 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-console.log ("HIHIHIHIHI")
 window.setupFluid = () => eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils_EventBus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/EventBus */ \"./js/utils/EventBus.js\");\n/* harmony import */ var _modules_WebGL__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/WebGL */ \"./js/modules/WebGL.js\");\n\nwindow.EventBus = _utils_EventBus__WEBPACK_IMPORTED_MODULE_0__[\"default\"];\n\nif (!window.isDev) window.isDev = false;\nvar webglMng = new _modules_WebGL__WEBPACK_IMPORTED_MODULE_1__[\"default\"]({\n  $wrapper: document.getElementById(\"fluid-wrapper\")\n});\n\n//# sourceURL=webpack:///./js/main.js?");
 
 /***/ }),

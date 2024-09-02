@@ -3,8 +3,7 @@
 	export let data;
 </script>
 
-<article>
-	<h1>{data.title}</h1>
-	<p>Published: {data.date}</p>
+<div>
+	<div>{data.title}</div>
 	<svelte:component this={data.content} />
-</article>
+</div>

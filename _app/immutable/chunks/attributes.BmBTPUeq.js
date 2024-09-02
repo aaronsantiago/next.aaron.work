@@ -1,0 +1,1 @@
+import{h as o}from"./runtime.0sKRX3HQ.js";function g(r,i,s,t){s=s==null?null:s+"";var f=r.__attributes??(r.__attributes={});o&&(f[i]=r.getAttribute(i),r.nodeName==="LINK")||f[i]!==(f[i]=s)&&(s===null?r.removeAttribute(i):r.setAttribute(i,s))}export{g as s};

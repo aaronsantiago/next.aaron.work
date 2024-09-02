@@ -17,4 +17,4 @@ These models can be run in real time, allowing for interactive installations lev
 
 Technologies used: Unity, ml-agents, Mandelbulber, Oculus Medium, Blender, Kinect, Depthkit.
 
-Short video clip [here.](/hollows_00.mp4)
+<!-- Short video clip [here.](/hollows_00.mp4) -->

@@ -1,4 +1,5 @@
 <script>
+  import { base } from "$app/paths";
   export let data;
 </script>
 
@@ -7,7 +8,7 @@
 <ul>
   {#each data.projects as project}
     <li>
-      <a href={project.path}>
+      <a href={base+ project.path}>
         {project.meta.title}
       </a>
     </li>

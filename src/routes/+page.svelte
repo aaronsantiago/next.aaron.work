@@ -2,7 +2,7 @@
 	import { base } from '$app/paths';
 	import clsx from 'clsx';
   
-	import { scale, fade } from 'svelte/transition';
+	import { scale, fade, slide, fly } from 'svelte/transition';
 	import { projectAnim } from '../projectAnim';
 	import { quintOut } from 'svelte/easing';
 	export let data;
@@ -20,7 +20,7 @@
 
 <div class="overflow-y-scroll w-full h-full">
 	<div class="grid grid-cols-6 gap-10 m-6 grid-flow-dense">
-		{#each data.projects.filter((p) => !p.meta.hidden) as project}
+		{#each data.projects.filter((p) => !p.meta.hidden) as project, i}
 			<div
 				class={clsx(`w-full h-full min-h-32`, {
 					'col-span-1': project.meta.size === 'small',
@@ -31,13 +31,15 @@
         "rounded-3xl"
         )}
 
-        in:receive|global={{key:project.meta.title}}
-        out:send|global={{key:project.meta.title}}
-				style={`background-image: url(${base +"/"+ project.meta.cardImage}); background-position: center; background-size:cover;`}
+        in:fly|global={{x: -100, duration:100, delay:i * 20, easing: quintOut}}
+        out:fly|global={{x: -100, duration:100, delay:i * 20, easing: quintOut}}
+				style={`background-image: url(${base +"/albums/becoming/01.png"}); background-position: center; background-size:cover;`}
 			>
 				<a href={base + project.path}>
 					{project.meta.title}
 				</a>
+				<!-- style={`background-image: url(${base +"/"+ project.meta.cardImage}); background-position: center; background-size:cover;`} -->
+
 			</div>
 		{/each}
 	</div>

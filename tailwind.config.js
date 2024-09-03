@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        rubik: ['Rubik Mono One']
+        rubik: ['Rubik Mono One'],
+        rbk: ['Rubik']
       }
     },
   },

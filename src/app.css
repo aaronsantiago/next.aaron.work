@@ -10,6 +10,13 @@
 		font-weight: normal;
 		font-display: swap;
 	}
+	@font-face {
+		font-family: 'Rubik';
+		src: local('Rubik'), local('Rubik'), local('rubik'),
+			local('rubik'), url('/fonts/Rubik-VariableFont_wght.ttf');
+		font-weight: normal;
+		font-display: swap;
+	}
 }
 
 .body {

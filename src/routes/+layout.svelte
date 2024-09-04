@@ -21,17 +21,17 @@
 			class="font-rubik text-white opacity-100 mix-blend-difference text-[2dvw] absolute bottom-0 left-[0.5dvw] z-50 h-full flex flex-col justify-end"
 		>
 			<span class="mr-[2dvh]">
-				<div><a href="/">about</a></div>
-				<div><a href="/">contact</a></div>
+				<div><a href={base + "/"}>about</a></div>
+				<div><a href={base + "/"}>contact</a></div>
 			</span>
 		</div>
 		<a
-			href={'/'}
+			href={base + '/'}
 			class="font-rubik text-white opacity-100 mix-blend-difference text-[4.5dvw] absolute bottom-[7dvh] right-[0.5dvw] z-50 align-text-bottom"
 			>Kinetic Diffusion</a
 		>
 		<a
-			href={'/'}
+			href={base + '/'}
 			class="font-rubik text-white opacity-100 mix-blend-difference text-[7.5dvw] absolute bottom-[-4dvh] right-[0.5dvw] z-50 align-text-bottom"
 			><span class="mr-[2dvh]">Aaron</span>Santiago</a
 		>

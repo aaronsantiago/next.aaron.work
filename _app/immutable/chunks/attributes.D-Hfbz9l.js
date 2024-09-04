@@ -1,1 +1,0 @@
-import{h as o,L as _}from"./runtime.CwBQmc7F.js";function L(r,s,f,A){f=f==null?null:f+"";var i=r.__attributes??(r.__attributes={});o&&(i[s]=r.getAttribute(s),s==="src"||s==="srcset"||s==="href"&&r.nodeName==="LINK")||i[s]!==(i[s]=f)&&(s==="loading"&&(r[_]=f),f===null?r.removeAttribute(s):r.setAttribute(s,f))}export{L as s};

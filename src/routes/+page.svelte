@@ -6,6 +6,7 @@
 	import { projectAnim } from '../projectAnim';
 	import { quintIn, quintOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
+	import { getSidebarTitle } from '$lib/sidebar.svelte.js';
 	export let data;
 
 	let [send, receive] = projectAnim({
@@ -20,9 +21,12 @@
 
 	let ordering = data.projects.map((p, i) => i);
 
+	let sidebarTitle = getSidebarTitle();
+
 	onMount(() => {
 		ordering = ordering.sort(() => Math.random() - 0.5);
 		console.log(ordering);
+		sidebarTitle.setSidebarTitle("")
 	});
 </script>
 

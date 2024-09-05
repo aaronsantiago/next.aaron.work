@@ -5,7 +5,16 @@
 	import { scale, fade, slide, fly } from 'svelte/transition';
 	import { quintIn, quintOut } from 'svelte/easing';
 
+	import { getSidebarTitle } from '$lib/sidebar.svelte.js';
+	import { onMount } from 'svelte';
+
 	export let data;
+
+	let sidebarTitle = getSidebarTitle();
+
+	onMount(() => {
+		sidebarTitle.setSidebarTitle(data.title);
+	});
 
 </script>
 

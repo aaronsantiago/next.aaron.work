@@ -1,9 +1,16 @@
 <script>
 	import '../app.css';
+	import '@fortawesome/fontawesome-free/css/all.min.css'
+
 	import { onMount } from 'svelte';
 	import { base } from '$app/paths';
+	import { fly } from 'svelte/transition';
+	import { quintIn, quintOut } from 'svelte/easing';
+
+	import { getSidebarTitle } from '$lib/sidebar.svelte.js';
 
 	export let data;
+	let sidebarTitle = getSidebarTitle();
 </script>
 
 {#await import('$lib/fluid') then}
@@ -18,22 +25,32 @@
 	></div>
 	<div class="absolute w-screen h-screen overflow-clip">
 		<div
-			class="font-rubik text-white opacity-100 mix-blend-difference text-[2dvw] absolute bottom-0 left-[0.5dvw] z-50 h-full flex flex-col justify-end"
+			class="font-rubik text-[2dvw] mix-blend-difference absolute bottom-0 left-[0.5dvw] z-50 flex flex-col justify-end"
 		>
 			<span class="mr-[2dvh]">
-				<div><a href={base + "/"}>about</a></div>
-				<div><a href={base + "/"}>contact</a></div>
+				<div><a class="text-white opacity-70 transition-opacity hover:opacity-100" href={base + '/'}>about</a></div>
+				<div><a class="text-white opacity-70 transition-opacity hover:opacity-100" href={base + '/'}>contact</a></div>
 			</span>
 		</div>
-		<a
-			href={base + '/'}
-			class="font-rubik text-white opacity-100 mix-blend-difference text-[4.5dvw] absolute bottom-[7dvh] right-[0.5dvw] z-50 align-text-bottom"
-			>Kinetic Diffusion</a
-		>
-		<a
-			href={base + '/'}
-			class="font-rubik text-white opacity-100 mix-blend-difference text-[7.5dvw] absolute bottom-[-4dvh] right-[0.5dvw] z-50 align-text-bottom"
-			><span class="mr-[2dvh]">Aaron</span>Santiago</a
+		{#if sidebarTitle.sidebarTitle != ''}
+			<div
+				in:fly|global={{ x: -100, duration: 220, delay: 100, easing: quintOut }}
+				out:fly|global={{ x: -100, duration: 220, delay: 250, easing: quintIn }}
+				class="font-rubik text-white mix-blend-difference text-[4dvw] absolute bottom-[5dvw] left-[0.5dvw] z-50 align-text-bottom">
+				<a class="text-white opacity-70 transition-opacity hover:opacity-100" href={base + '/'}><i class="fa-solid fa-angle-left mr-[-2dvw]"></i></a>
+				<a class="text-white opacity-70 transition-opacity hover:opacity-100" href={base + '/'}><i class="fa-solid fa-rotate-left mr-[-2dvw]"></i></a>
+				<a class="text-white opacity-70 transition-opacity hover:opacity-100" href={base + '/'}><i class="fa-solid fa-angle-right"></i></a>
+			</div>
+			<div
+				in:fly|global={{ x: 100, duration: 220, delay: 0, easing: quintOut }}
+				out:fly|global={{ x: 100, duration: 220, delay: 100, easing: quintIn }}
+				class="font-rubik text-white opacity-70 mix-blend-difference text-[4.5dvw] absolute bottom-[5dvw] right-[0.5dvw] z-50 align-text-bottom"
+				>{sidebarTitle.sidebarTitle}</div
+			>
+		{/if}
+		<div
+			class="font-rubik text-white opacity-70 mix-blend-difference transition-opacity hover:opacity-100 text-[7dvw] absolute bottom-[0dvh] right-[0.5dvw] z-50 flex flex-col justify-end items-end"
+			><a href={base + '/'} class="h-[8dvw]"><span class="mr-[2dvh] align-bottom leading-0 h-0">Aaron</span>Santiago</a></div
 		>
 		{#key data.path}
 			<div class="mainContent w-full h-full"><slot /></div>

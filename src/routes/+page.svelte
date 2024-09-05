@@ -30,7 +30,7 @@
 	});
 </script>
 
-<div class="overflow-y-scroll w-full h-full">
+<div class="w-full">
 	<div class="grid grid-cols-6 gap-6 m-6 grid-flow-dense">
 		{#each data.projects.filter((p) => !p.meta.hidden) as project, i}
 			<a
@@ -47,7 +47,7 @@
 					'rounded-3xl',
 					'drop-shadow-md'
 				)}
-				in:fly|global={{ x: -100, duration: 120, delay: ordering[i] * 10, easing: quintOut }}
+				in:fly|global={{ x: -100, duration: 120, delay: 500 + ordering[i] * 10, easing: quintOut }}
 				out:fly|global={{ x: -100, duration: 120, delay: ordering[i] * 10, easing: quintIn }}
 				style={`background-image: url(${base + '/' + project.meta.cardImage}); background-position: center; background-size:cover;`}
 			>

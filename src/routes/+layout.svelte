@@ -53,7 +53,12 @@
 			><a href={base + '/'} class="h-[8dvw]"><span class="mr-[2dvh] align-bottom leading-0 h-0">Aaron</span>Santiago</a></div
 		>
 		{#key data.path}
-			<div class="mainContent w-full h-full"><slot /></div>
+			<div class="mainContent w-full h-full">
+				<div class="w-full h-full overflow-y-scroll">
+					<slot />
+					<div class="h-[20dvw]"></div>
+				</div>
+			</div>
 		{/key}
 	</div>
 </div>

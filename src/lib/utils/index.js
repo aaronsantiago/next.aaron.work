@@ -16,3 +16,30 @@ export const fetchMarkdownPosts = async () => {
 
 	return allPosts;
 };
+
+export const fetchImageFolder = async (folder) => {
+	const allImageFiles = import.meta.glob(`../../../static/**/*`, { eager: true });
+
+	// console.log(allImageFiles);
+	// const allImages = await Promise.all(
+	// 	allImageFiles.map(async ([path, resolver]) => {
+	// 		// const image = await resolver();
+	// 		const imagePath = path.slice(11, -4);
+
+	// 		return {
+	// 			imagePath
+	// 		};
+	// 	}
+	// ));
+
+	// console.log(allImages);
+	let images = Object.keys(allImageFiles).map((path) => {
+		return path.slice(15);
+	});
+
+	return images;
+
+	// return allImageFiles
+
+	return { folder };
+};

@@ -8,9 +8,11 @@
 	import { getSidebarTitle } from '$lib/sidebar.svelte.js';
 	import { onMount } from 'svelte';
 
-	export let data;
+	let {data} = $props();
 
 	let sidebarTitle = getSidebarTitle();
+
+	let modalImage = $state("")
 
 	onMount(() => {
 		sidebarTitle.setSidebarTitle(data.title);
@@ -37,6 +39,7 @@
 			'rounded-3xl',
 			'drop-shadow-md'
 		)}
+		on:click={() => modalImage = base + image}
 		style={`background-image: url(${base + image}); background-position: center; background-size:cover;`}
 			>
 				<!-- <img src={base + image} alt="" class="object-cover" /> -->
@@ -44,3 +47,16 @@
 		{/each}
 	<!-- </div> -->
 </div>
+
+{#if modalImage}
+	<div 
+	in:fade|global={{ x: -100, duration: 400, easing: quintOut }}
+	out:fade|global={{ x: -100, duration: 200, easing: quintIn }}
+	class="absolute top-0 left-0 w-full h-full bg-[#000a]"
+		on:click={() => modalImage = ""}
+	>
+		<div class="w-full h-full">
+			<img src={modalImage} alt="" class="object-contain object-center w-full h-full" />
+			</div>
+	</div>
+{/if}
